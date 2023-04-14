@@ -22,7 +22,7 @@ router.post('/', (req, res) => {
   console.log(req);
 
   if(req.query.validationToken){
-     res.write(req.quey.validationToken);
+     res.write(req.query.validationToken);
     res.end();
     }
   else   
