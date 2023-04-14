@@ -20,8 +20,14 @@ router.post('/app', (req, res) => {
 router.get('/another', (req, res) => res.json({ route: req.originalUrl }));
 router.post('/', (req, res) => {
   console.log(req);
-  res.json(req.body);
-res.end();
+
+  if(req.query.validationToken){
+     res.write(req.quey.validationToken);
+    res.end();
+    }
+  else   
+    res.json(req.body);
+
 });
 
 app.use(bodyParser.json());
