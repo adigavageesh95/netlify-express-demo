@@ -33,7 +33,7 @@ router.post('/', (req, res) => {
 });
 router.get('/events',(req,res)=>{
 res.json(events);
-}
+});
 
 app.use(bodyParser.json());
 app.use('/.netlify/functions/server', router);  // path must route to lambda
