@@ -4,6 +4,7 @@ const path = require('path');
 const serverless = require('serverless-http');
 const app = express();
 const bodyParser = require('body-parser');
+var events = [];
 
 const router = express.Router();
 router.get('/', (req, res) => {
@@ -20,6 +21,7 @@ router.post('/app', (req, res) => {
 router.get('/another', (req, res) => res.json({ route: req.originalUrl }));
 router.post('/', (req, res) => {
   console.log(req);
+  events.push(req.body);
 
   if(req.query.validationToken){
      res.write(req.query.validationToken);
